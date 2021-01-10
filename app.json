@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/form/index",
+    "pages/list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,8 +19,12 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "登录"
+        "pagePath": "pages/form/index",
+        "text": "表单"
+      },
+      {
+        "pagePath": "pages/list/index",
+        "text": "列表"
       }
     ]
   }

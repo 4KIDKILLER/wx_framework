@@ -33,24 +33,6 @@ App({
       }
     })
   },
-  /**
-   * 获取底部导航高度
-   */
-  getTabBarHeight() {
-    let tabbarHeight = 0;
-    wx.getSystemInfo({
-      success: (info) => {
-        const {
-          screenHeight,
-          windowHeight,
-          statusBarHeight,
-          pixelRatio
-        } = info;
-        tabbarHeight = (screenHeight - windowHeight - statusBarHeight) * pixelRatio
-      }
-    });
-    return tabbarHeight;
-  },
   globalData: {
     userInfo: null,
   }

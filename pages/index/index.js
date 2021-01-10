@@ -7,16 +7,26 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    height: 0
   },
   onLoad() {
-    let height = app.getTabBarHeight();
+    wx.getSystemInfo({
+      success: (info) => {
+        const {
+          screenHeight,
+          screenWidth,
+          windowHeight,
+          statusBarHeight,
+          pixelRatio
+        } = info;
+        const px2rpx = 750 / screenWidth;
+        this.setData({
+          height: windowHeight*px2rpx
+        });
+      }
+    });
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -52,4 +62,15 @@ Page({
       hasUserInfo: true
     })
   },
+  bindDownLoad(){
+    console.log("loading");
+  },
+  onPullDownRefresh(){
+    const obj = wx;
+    obj.showNavigationBarLoading();
+    setTimeout(() => {
+      obj.stopPullDownRefresh();
+      obj.hideNavigationBarLoading();
+    }, 2000);
+  }
 })

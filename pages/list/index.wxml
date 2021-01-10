@@ -1,0 +1,4 @@
+<view class="container">
+    <text>{{text}}</text>
+    <view style="height:500px;width:30rpx;background-color:red"></view>
+</view>
